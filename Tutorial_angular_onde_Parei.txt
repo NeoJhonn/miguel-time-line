@@ -1,1 +1,1 @@
-https://angular.io/tutorial/first-app/first-app-lesson-03
+https://angular.io/tutorial/first-app/first-app-lesson-10

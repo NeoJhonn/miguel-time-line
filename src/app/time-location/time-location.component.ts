@@ -14,10 +14,10 @@ import { format } from 'date-fns';
   ],
   template: `
     <section class="listing">
-    <img class="listing-photo" [src]="timeLocation.photo" alt="Exterior photo of {{timeLocation.name}}">
-    <h2 class="listing-heading">{{ timeLocation.name }}</h2>
-    <p class="listing-location"><img src="/assets/calendar.png" alt="calendar-icon"> {{ formatDate(timeLocation.date) }}</p>
-  </section>
+      <img class="listing-photo" [src]="timeLocation.photo" alt="Exterior photo of {{timeLocation.name}}">
+      <h2 class="listing-heading">{{ timeLocation.name }}</h2>
+      <p class="listing-location"><img src="/assets/calendar.png" alt="calendar-icon"> {{ formatDate(timeLocation.date) }}</p>
+    </section>
   `,
   styleUrls: ['./time-location.component.css']
 })
