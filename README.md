@@ -17,14 +17,14 @@ Aplicação Web que desenvolvi para fins de estudos do framework Angular.
 <br>
 
 <p align="center">
-   <img alt="miguel-time-line-sc1" src=""
+   <img alt="miguel-time-line-sc1" src="https://github.com/NeoJhonn/miguel-time-line/blob/main/.github/screenshot1.png"
   width="70%">
 </p>
 
 <br>
 
 <p align="center">
-   <img alt="miguel-time-line-sc2" src=""
+   <img alt="miguel-time-line-sc2" src="https://github.com/NeoJhonn/miguel-time-line/blob/main/.github/screenshot2.png"
   width="70%">
 </p>
 
