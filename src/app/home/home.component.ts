@@ -4,6 +4,7 @@ import { TimeLocationComponent } from '../time-location/time-location.component'
 import { TimeLocation } from '../time-location';
 import { TimeService } from '../time.service';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -14,14 +15,14 @@ import { TimeService } from '../time.service';
   template: `
     <section>
       <form>
-        <input type="text" placeholder="Filtro por Data">
-        <button class="primary" type="button">Pesquisar</button>
+        <input type="text" placeholder="Filtrar por Evento" #filter>
+        <button class="primary" type="button" (click)="filterResults(filter.value)">Pesquisar</button>
       </form>
     </section>
     <section class="results">
     <!-- usa o ngFor para carregar os itens que estão no array de timeLocation-->
     <app-time-location
-      *ngFor="let timeLocation of timeLocationList"
+      *ngFor="let timeLocation of filteredTimeList"
       [timeLocation]="timeLocation">
     </app-time-location>
   </section>
@@ -31,8 +32,22 @@ import { TimeService } from '../time.service';
 export class HomeComponent {
   timeLocationList: TimeLocation[] = [];
   timeService: TimeService = inject(TimeService);
+  filteredTimeList: TimeLocation[] = [];
 
   constructor() {
-    this.timeLocationList = this.timeService.getAllTimeLocations();
+    this.timeService.getAllTimeLocations().then((timeLocationList: TimeLocation[]) => {
+    this.timeLocationList = timeLocationList;
+    this.filteredTimeList = timeLocationList;
+    })
+  }
+
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredTimeList = this.timeLocationList;
+    }
+
+    this.filteredTimeList = this.timeLocationList.filter(
+      timeLocation => timeLocation?.name.toLowerCase().includes(text.toLowerCase())
+    );
   }
 }
